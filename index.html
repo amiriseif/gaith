@@ -194,6 +194,13 @@
             font-size: 1.5rem;
         }
 
+        .logo-image {
+            height: 40px;
+            width: 40px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
         .nav-links {
             display: none;
             list-style: none;
@@ -607,6 +614,18 @@
             text-align: center;
         }
 
+        .partner-image {
+            max-width: 100%;
+            max-height: 120px;
+            object-fit: contain;
+            filter: grayscale(0%);
+            transition: filter 0.3s ease;
+        }
+
+        .partner-logo:hover .partner-image {
+            filter: grayscale(0%);
+        }
+
         /* ==================== CONTACT SECTION ==================== */
         .contact-section {
             background: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue) 100%);
@@ -785,6 +804,84 @@
             margin-top: 2rem;
         }
 
+        /* ==================== TEAM SECTION ==================== */
+        .team-section {
+            background: var(--neutral-light);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            text-align: center;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .team-member:nth-child(1) { animation-delay: 0.1s; }
+        .team-member:nth-child(2) { animation-delay: 0.15s; }
+        .team-member:nth-child(3) { animation-delay: 0.2s; }
+        .team-member:nth-child(4) { animation-delay: 0.25s; }
+        .team-member:nth-child(5) { animation-delay: 0.3s; }
+        .team-member:nth-child(6) { animation-delay: 0.35s; }
+        .team-member:nth-child(7) { animation-delay: 0.4s; }
+
+        .team-image-wrapper {
+            position: relative;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .team-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--white);
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover .team-image {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(8, 145, 178, 0.2);
+            border-color: var(--primary-blue);
+        }
+
+        .team-member h3 {
+            margin-bottom: 0.5rem;
+            color: var(--neutral-dark);
+        }
+
+        .team-role {
+            font-size: 0.95rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .team-member p {
+            font-size: 0.9rem;
+            color: var(--neutral-gray);
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .team-image {
+                width: 140px;
+                height: 140px;
+            }
+        }
+
         /* ==================== ANIMATIONS ==================== */
         @keyframes fadeInUp {
             from {
@@ -865,9 +962,7 @@
     <header>
         <nav class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0;">
             <div class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-droplet"></i>
-                </div>
+                <img src="systemlogo.png" alt="Ghaith System Logo" class="logo-image">
                 <span>Ghaith System</span>
             </div>
 
@@ -880,6 +975,7 @@
                 <li><a href="#problem">Le Problème</a></li>
                 <li><a href="#solution">Notre Solution</a></li>
                 <li><a href="#benefits">Avantages</a></li>
+                <li><a href="#team">Équipe</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
 
@@ -1076,24 +1172,92 @@
 
             <div class="partners-grid">
                 <div class="partner-logo">
-                    <div class="partner-logo-text">
-                        <i class="fas fa-building" style="font-size: 2rem; color: var(--primary-blue); display: block; margin-bottom: 0.5rem;"></i>
-                        SONEDE
-                    </div>
+                    <img src="partners1.png" alt="SONEDE Partner Logo" class="partner-image">
                 </div>
 
                 <div class="partner-logo">
-                    <div class="partner-logo-text">
-                        <i class="fas fa-bank" style="font-size: 2rem; color: var(--secondary-green); display: block; margin-bottom: 0.5rem;"></i>
-                        BTS Bank
-                    </div>
+                    <img src="partners2.png" alt="BTS Bank Partner Logo" class="partner-image">
                 </div>
 
                 <div class="partner-logo">
-                    <div class="partner-logo-text">
-                        <i class="fas fa-users" style="font-size: 2rem; color: var(--accent-orange); display: block; margin-bottom: 0.5rem;"></i>
-                        Olympique Mnihla
+                    <img src="partners3.png" alt="Olympique Mnihla Partner Logo" class="partner-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TEAM SECTION ==================== -->
+    <section class="team-section section-padding" id="team">
+        <div class="container">
+            <h2 class="text-center mb-3">
+                Notre <span style="color: var(--secondary-green);">Équipe</span> Dévouée
+            </h2>
+            <p class="text-center" style="max-width: 700px; margin-left: auto; margin-right: auto; margin-bottom: 3rem;">
+                Des experts passionnés par l'innovation et la durabilité, prêts à transformer votre maison.
+            </p>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-image-wrapper">
+                        <img src="team1.png" alt="Ahmed" class="team-image">
                     </div>
+                    <h3>Ahmed</h3>
+                    <div class="team-role">Co-Fondateur & Directeur</div>
+                    <p>Expertise en systèmes hydrauliques innovants</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-image-wrapper">
+                        <img src="team2.png" alt="Ahmed" class="team-image">
+                    </div>
+                    <h3>Ahmed</h3>
+                    <div class="team-role">Ingénieur Principal</div>
+                    <p>Spécialiste en énergie renouvelable</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-image-wrapper">
+                        <img src="team3.png" alt="Chayma" class="team-image">
+                    </div>
+                    <h3>Chayma</h3>
+                    <div class="team-role">Directrice Marketing</div>
+                    <p>Stratégie commerciale et communication</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-image-wrapper">
+                        <img src="team4.png" alt="Mr Malek" class="team-image">
+                    </div>
+                    <h3>Mr Malek</h3>
+                    <div class="team-role">Consultant Senior</div>
+                    <p>Expertise en gestion de projets</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-image-wrapper">
+                        <img src="team5.png" alt="Saif" class="team-image">
+                    </div>
+                    <h3>Saif</h3>
+                    <div class="team-role">Responsable Installations</div>
+                    <p>Supervision technique et maintenance</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-image-wrapper">
+                        <img src="team6.png" alt="Asma" class="team-image">
+                    </div>
+                    <h3>Asma</h3>
+                    <div class="team-role">Responsable Client</div>
+                    <p>Support et satisfaction clientèle</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-image-wrapper">
+                        <img src="team7.png" alt="Med Amine" class="team-image">
+                    </div>
+                    <h3>Med Amine</h3>
+                    <div class="team-role">Technicien Qualité</div>
+                    <p>Tests et assurance qualité</p>
                 </div>
             </div>
         </div>
@@ -1200,6 +1364,7 @@
                     <a href="#problem">Le Problème</a>
                     <a href="#solution">Notre Solution</a>
                     <a href="#benefits">Avantages</a>
+                    <a href="#team">Équipe</a>
                 </div>
 
                 <div class="footer-col">
